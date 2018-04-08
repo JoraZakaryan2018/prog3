@@ -2,7 +2,7 @@ var matrix = [
     // [0,0,0,0,],
     // [0,0,0,0,],
     // [4,0,0,0,],
-   // [0,4,0,],
+    // [0,4,0,],
     // [2,0,0,],
     // [0,0,3,],
 ];
@@ -13,9 +13,9 @@ var bombArr = [];
 var gishatichArr = [];
 
 var xotakerArr = [];
-var amenakerArr =[];
+var amenakerArr = [];
 
-var kerparsArr =[];
+var kerparsArr = [];
 for (var y = 0; y < 40; y++) {
     matrix[y] = [];
     for (var x = 0; x < 40; x++) {
@@ -37,9 +37,9 @@ for (var x = 0; x < 3; x++) {
     matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 4;
 }
 for (var x = 0; x < 5; x++) {
-    
-        matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 5;
-    }
+
+    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 5;
+}
 
 function setup() {
     frameRate(5);
@@ -63,7 +63,7 @@ function setup() {
                 var xot = new Amenaker(x, y);
                 amenakerArr.push(xot);
             }
-             else if (matrix[y][x] == 5) {
+            else if (matrix[y][x] == 5) {
                 var xot = new KerparS(x, y);
                 kerparsArr.push(xot);
             }
@@ -92,12 +92,12 @@ function draw() {
                 fill("red");
                 rect(x * side, y * side, side, side);
             }
-           
+
             else if (matrix[y][x] == 4) {
                 fill("blue");
                 rect(x * side, y * side, side, side);
             }
-             else if (matrix[y][x] == 5) {
+            else if (matrix[y][x] == 5) {
                 fill("black");
                 rect(x * side, y * side, side, side);
             }
@@ -109,26 +109,26 @@ function draw() {
     for (var i in xotakerArr) {
         xotakerArr[i].utel();
         xotakerArr[i].bazmanal();
-       xotakerArr[i].mahanal();
-        
+        xotakerArr[i].mahanal();
+
     }
 
     for (var i in gishatichArr) {
-       
-         gishatichArr[i].utel();
-         gishatichArr[i].mahanal();
+
+        gishatichArr[i].utel();
+        gishatichArr[i].mahanal();
     }
 
-    for(var i in amenakerArr){
+    for (var i in amenakerArr) {
         amenakerArr[i].sharjvel();
         amenakerArr[i].utel();
         amenakerArr[i].mahanal();
-        
-        
+
+
     }
-    for(var i in kerparsArr){
+    for (var i in kerparsArr) {
         kerparsArr[i].sharjvel();
         kerparsArr[i].bazmanal();
-        
+
     }
 }

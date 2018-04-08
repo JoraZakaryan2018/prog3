@@ -1,13 +1,8 @@
-class Amenaker {
+class Amenaker extends LivingCreature {
     constructor(x, y, energy) {
-        this.x = x;
-        this.y = y;
-
+        super(x, y);
     }
     stanalNorKordinatner() {
-
-
-
         this.directions1 = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -36,24 +31,14 @@ class Amenaker {
         ];
     }
     yntrelVandak(ch) {
-        var found = [];
-        for (var i in this.directions1) {
-            var x = this.directions1[i][0];
-            var y = this.directions1[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == ch) {
-                    found.push(this.directions1[i]);
-                }
-            }
-        }
-        return found;
+
+        this.stanalNorKordinatner();
+        return super.yntrelVandak(ch);
     }
     sharjvel() {
         this.stanalNorKordinatner();
         var norVandak2 = random(this.yntrelVandak(0));
         var norVandak1 = random(this.yntrelVandak(1));
-        // var norVandak4 = random(this.yntrelVandak(3));
-
 
         if (norVandak2) {
             matrix[this.y][this.x] = 0;
@@ -75,7 +60,6 @@ class Amenaker {
         var norVandak1 = random(this.yntrelVandak(2));
         // var norVandak2 = random(this.yntrelVandak(0));
         var norVandak3 = random(this.yntrelVandak(1));
-        // var norVandak4 = random(this.yntrelVandak(3));
         var norVandak5 = random(this.yntrelVandak(5));
 
         if (norVandak5) {
@@ -87,9 +71,7 @@ class Amenaker {
             for (var i in kerparsArr) {
                 if (norVandak5[1] == kerparsArr[i].y && norVandak5[0] == kerparsArr[i].x) {
                     kerparsArr.splice(i, 1);
-                    console.log("kerav bazmacnoxinnn");
                 }
-
             }
         }
         else if (norVandak2) {
@@ -101,13 +83,9 @@ class Amenaker {
             for (var i in gishatichArr) {
                 if (norVandak2[1] == gishatichArr[i].y && norVandak2[0] == gishatichArr[i].x) {
                     gishatichArr.splice(i, 1);
-                    // console.log("kerav gishatichin");
                 }
-
             }
         }
-
-
         else if (norVandak1) {
             matrix[this.y][this.x] = 0;
             this.y = norVandak1[1];
@@ -117,11 +95,7 @@ class Amenaker {
             for (var i in xotakerArr) {
                 if (norVandak1[1] == xotakerArr[i].y && norVandak1[0] == xotakerArr[i].x) {
                     xotakerArr.splice(i, 1);
-                    //  console.log("kerav xotakerin");
                 }
-
-
-
             }
         }
         else if (norVandak3) {
@@ -143,7 +117,6 @@ class Amenaker {
     }
     mahanal() {
         if (grassArr.length == 0 && xotakerArr.length == 0 && gishatichArr.length == 0) {
-            // matrix[y][x] = 0;
             for (var i in amenakerArr) {
                 matrix[amenakerArr[i].y][amenakerArr[i].x] = 0;
                 amenakerArr.splice(i, 1);

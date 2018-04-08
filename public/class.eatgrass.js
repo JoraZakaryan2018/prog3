@@ -1,8 +1,7 @@
-class Xotaker {
+class Xotaker extends LivingCreature {
     constructor(x, y, energy) {
-        this.x = x;
-        this.y = y;
-        this.energy = 5;
+        super(x, y);
+        this.energy = energy;
         this.mahxot = 0;
     }
     stanalNorKordinatner() {
@@ -18,17 +17,8 @@ class Xotaker {
         ];
     }
     yntrelVandak(ch) {
-        var found = [];
-        for (var i in this.directions) {
-            var x = this.directions[i][0];
-            var y = this.directions[i][1];
-            if (x >= 0 && x < matrix[0].length && y >= 0 && y < matrix.length) {
-                if (matrix[y][x] == ch) {
-                    found.push(this.directions[i]);
-                }
-            }
-        }
-        return found;
+        this.stanalNorKordinatner();
+        return super.yntrelVandak(ch);
     }
 
     sharjvel() {
@@ -40,16 +30,13 @@ class Xotaker {
             matrix[this.y][this.x] = 2;
             this.energy--;
             this.mahxot = 0;
-
-
-
         }
     }
 
     utel() {
         this.stanalNorKordinatner();
         var norVandak1 = random(this.yntrelVandak(1));
-    
+
         if (norVandak1) {
             matrix[this.y][this.x] = 0;
             this.y = norVandak1[1];
@@ -59,6 +46,7 @@ class Xotaker {
             for (var i in grassArr) {
                 if (norVandak1[1] == grassArr[i].y && norVandak1[0] == grassArr[i].x)
                     grassArr.splice(i, 1);
+
             }
             this.energy = 5;
             this.mahxot++;
@@ -85,10 +73,10 @@ class Xotaker {
     mahanal() {
 
         for (var i in xotakerArr) {
-            if (/*this.x == x && this.y == y &&*/xotakerArr[i].energy <= 0) {
+            if (xotakerArr[i].energy <= 0) {
                 matrix[this.y][this.x] = 0;
                 xotakerArr.splice(i, 1);
-                //  console.log("Xotakeri qanak");
+
             }
         }
     }
