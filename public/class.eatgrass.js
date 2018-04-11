@@ -1,7 +1,7 @@
 class Xotaker extends LivingCreature {
-    constructor(x, y, energy) {
+    constructor(x, y) {
         super(x, y);
-        this.energy = energy;
+        this.energy = 5;
         this.mahxot = 0;
     }
     stanalNorKordinatner() {
@@ -76,7 +76,7 @@ class Xotaker extends LivingCreature {
             if (xotakerArr[i].energy <= 0) {
                 matrix[this.y][this.x] = 0;
                 xotakerArr.splice(i, 1);
-
+                
             }
         }
     }
