@@ -1,9 +1,9 @@
 var matrix = [
-    [0, 0, 1, 1, 1],
-    [0, 0, 1, 0, 1],
-    [0, 0, 1, 1, 1],
-    [0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0]
+    // [0, 0, 1, 1, 1],
+    // [0, 0, 1, 0, 1],
+    // [0, 0, 1, 1, 1],
+    // [0, 0, 0, 0, 0],
+    // [0, 0, 0, 0, 0]
 
 ];
 var side = 10;
@@ -20,30 +20,30 @@ var amenakerArr = [];
 var kerparsArr = [];
 
 var hivandArr = [];
-// for (var y = 0; y < 40; y++) {
-//     matrix[y] = [];
-//     for (var x = 0; x < 40; x++) {
-//         matrix[y].push(Math.floor(Math.random() * 2));
-//     }
-// }
-// for (var x = 0; x < 20; x++) {
+for (var y = 0; y < 40; y++) {
+    matrix[y] = [];
+    for (var x = 0; x < 40; x++) {
+        matrix[y].push(Math.floor(Math.random() * 2));
+    }
+}
+for (var x = 0; x < 20; x++) {
 
-//     matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 2;
-// }
+    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 2;
+}
 
-// for (var x = 0; x < 10; x++) {
+for (var x = 0; x < 10; x++) {
 
-//     matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 3;
-// }
+    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 3;
+}
 
-// for (var x = 0; x < 3; x++) {
+for (var x = 0; x < 3; x++) {
 
-//     matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 4;
-// }
-// for (var x = 0; x < 2; x++) {
+    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 4;
+}
+for (var x = 0; x < 2; x++) {
 
-//     matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 5;
-// }
+    matrix[Math.floor(Math.random() * 40)][Math.floor(Math.random() * 40)] = 5;
+}
 
 function setup() {
     frameRate(5);
